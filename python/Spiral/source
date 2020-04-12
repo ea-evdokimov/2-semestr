@@ -1,0 +1,78 @@
+n = int(input('Input n: '))
+l = [[0]*n for i in range(n)]
+
+dir = 'r'
+step = 0
+val = 1
+j = -1
+i = -1
+
+inp = 0
+while inp < n * n:
+    if dir == 'r':
+        i += 1
+        j += 1
+        k = 0
+        while k < n - step:
+            l[j][i] = inp
+            i += 1
+            inp += 1
+            k += 1
+        if val == 1:
+            step += 1
+            val = 0
+        else:
+            val = 1
+        dir = 'd'
+    if dir == 'd':
+        i -= 1
+        j += 1
+        k = 0
+        while k < n - step:
+            l[j][i] = inp
+            j += 1
+            inp += 1
+            k += 1
+
+        if val == 1:
+            step += 1
+            val = 0
+        else:
+            val = 1
+        dir = 'l'
+    if dir == 'l':
+        i -= 1
+        j -= 1
+        k = 0
+        while k < n - step:
+            l[j][i] = inp
+            i -= 1
+            inp += 1
+            k += 1
+
+        if val == 1:
+            step += 1
+            val = 0
+        else:
+            val = 1
+        dir = 'u'
+    if dir == 'u':
+        i += 1
+        j -= 1
+        k = 0
+        while k < n - step:
+            l[j][i] = inp
+            j -= 1
+            inp += 1
+            k += 1
+        if val == 1:
+            step += 1
+            val = 0
+        else:
+            val = 1
+        dir = 'r'
+
+for i in l: print (i)
+
+
+
